@@ -2,30 +2,49 @@
 }
 
 .inputAndButtonContainer {
+	display: flex;
+	gap: 15px;
 }
 
 .error {
+	color: #cc0000;
 }
 
 .input {
+	width: 375px;
+	height: 36px;
+	border-radius: 5px;
 }
 
 .input:focus {
 }
 
 .errorInput {
+	width: 375px;
+	height: 36px;
+	border-radius: 5px;
+	border: 2px solid #cc0000;
 }
 
 .button {
+	width: 80px;
+	height: 35px;
+	background: #0066cc;
+	border: none;
+	border-radius: 5px;
+	color: #ffffff;
+	cursor: pointer;
 }
 
 .button:focus {
 }
 
 .button:active {
+	opacity: 1;
 }
 
 .button:disabled {
+	opacity: 0.5;
 }
 
 .text {
