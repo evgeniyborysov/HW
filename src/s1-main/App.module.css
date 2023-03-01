@@ -1,11 +1,23 @@
 .App {
-    --header_height: 60px;
+	--header_height: 60px;
 }
 
 .hw {
+	max-width: 1200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 25px;
+}
 
+.wrap {
+	padding: 25px;
 }
 
 .hwTitle {
-
+	font-family: "Montserrat";
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 27px;
+	margin-bottom: 5px;
 }

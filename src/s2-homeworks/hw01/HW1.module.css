@@ -1,19 +1,5 @@
-.hw1 {
-	padding: 25px;
-}
-
 .hw {
 	max-width: 1200px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	margin: 0 auto;
-}
-
-.hwTitle {
-	font-family: "Montserrat";
-	font-weight: 600;
-	font-size: 22px;
-	line-height: 27px;
-	margin-bottom: 5px;
+	padding: 25px;
 }

@@ -21,9 +21,9 @@ const HW7 = () => {
 	const [value, onChangeOption] = useState<number>(2); // селект и радио должны работать синхронно
 
 	return (
-		<div id={"hw7"}>
+		<div id={"hw7"} className={s2.wrap}>
 			<div className={s2.hwTitle}>Homework #7</div>
-
+			<hr />
 			{/*демонстрация возможностей компонент:*/}
 			<div className={s2.hw}>
 				<div className={s.container}>
@@ -46,6 +46,7 @@ const HW7 = () => {
 					</div>
 				</div>
 			</div>
+			<hr />
 		</div>
 	);
 };
