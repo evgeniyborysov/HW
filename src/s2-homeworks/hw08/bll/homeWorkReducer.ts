@@ -16,24 +16,12 @@ export const homeWorkReducer = (
 			// by name
 			if (action.payload === "up") {
 				copyState = copyState.sort(function (a, b) {
-					if (a.name > b.name) {
-						return 1;
-					}
-					if (a.name < b.name) {
-						return -1;
-					}
-					return 0;
+					return a.name.localeCompare(b.name);
 				});
 			}
 			if (action.payload === "down") {
 				copyState = copyState.sort(function (a, b) {
-					if (a.name < b.name) {
-						return 1;
-					}
-					if (a.name > b.name) {
-						return -1;
-					}
-					return 0;
+					return b.name.localeCompare(a.name);
 				});
 			}
 
