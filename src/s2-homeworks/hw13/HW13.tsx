@@ -36,7 +36,7 @@ const HW13 = () => {
 			.then((res) => {
 				setCode("200");
 				setImage(success200);
-				setInfo("");
+				setInfo("...всё ок)");
 				// дописать
 			})
 			.catch((e) => {
@@ -45,15 +45,15 @@ const HW13 = () => {
 				if (e.response.status === 500) {
 					setCode("500");
 					setImage(error500);
-					setInfo("");
+					setInfo("эмитация ошибки на сервере");
 				} else if (e.response.status === 400) {
 					setCode("400");
 					setImage(error400);
-					setInfo("");
+					setInfo("Ты не отправил success в body вообще!");
 				} else {
 					setCode("Error");
 					setImage(errorUnknown);
-					setInfo("");
+					setInfo("Error");
 				}
 			});
 	};
