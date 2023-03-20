@@ -34,7 +34,7 @@ const HW13 = () => {
 		axios
 			.post(url, { success: x })
 			.then((res) => {
-				setCode("...всё ок)");
+				setCode("200");
 				setImage(success200);
 				setInfo("");
 				// дописать
@@ -43,11 +43,11 @@ const HW13 = () => {
 				// дописать
 				console.log(e.response.status);
 				if (e.response.status === 500) {
-					setCode("эмитация ошибки на сервере");
+					setCode("500");
 					setImage(error500);
 					setInfo("");
 				} else if (e.response.status === 400) {
-					setCode("Ты не отправил success в body вообще!");
+					setCode("400");
 					setImage(error400);
 					setInfo("");
 				} else {
