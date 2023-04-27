@@ -5,6 +5,7 @@ import axios from "axios";
 import SuperPagination from "./common/c9-SuperPagination/SuperPagination";
 import { useSearchParams } from "react-router-dom";
 import SuperSort from "./common/c10-SuperSort/SuperSort";
+import { Loader } from "../hw10/Loader";
 
 /*
  * 1 - дописать SuperPagination
@@ -53,6 +54,12 @@ const HW15 = () => {
 			// делает студент
 			// сохранить пришедшие данные
 			//
+			if (res) {
+				// console.log(res);
+				setTechs(res.data.techs);
+				setTotalCount(res.data.totalCount);
+				setLoading(false);
+			}
 		});
 	};
 
@@ -63,6 +70,16 @@ const HW15 = () => {
 		// sendQuery(
 		// setSearchParams(
 		//
+		setPage(newPage);
+		setCount(newCount);
+		const newParams = {
+			sort: sort,
+			page: newPage.toString(),
+			count: newCount.toString(),
+		};
+		sendQuery(newParams);
+		setSearchParams(newParams);
+		// console.log(newParams);
 	};
 
 	const onChangeSort = (newSort: string) => {
@@ -72,6 +89,14 @@ const HW15 = () => {
 		// sendQuery(
 		// setSearchParams(
 		//
+		const newParams = {
+			sort: newSort.toString(),
+			page: page.toString(),
+			count: count.toString(),
+		};
+		setSort(newSort);
+		sendQuery(newParams);
+		setSearchParams(newParams);
 	};
 
 	useEffect(() => {
@@ -94,45 +119,44 @@ const HW15 = () => {
 	));
 
 	return (
-		<div id={"hw15"}>
+		<div id={"hw15"} className={s2.wrap}>
 			<div className={s2.hwTitle}>Homework #15</div>
-
-			<div className={s2.hw}>
-				{idLoading && (
-					<div id={"hw15-loading"} className={s.loading}>
-						Loading...
-					</div>
-				)}
-
-				<SuperPagination
-					page={page}
-					itemsCountForPage={count}
-					totalCount={totalCount}
-					onChange={onChangePagination}
-				/>
-
-				<div className={s.rowHeader}>
-					<div className={s.techHeader}>
-						tech
-						<SuperSort
-							sort={sort}
-							value={"tech"}
-							onChange={onChangeSort}
-						/>
-					</div>
-
-					<div className={s.developerHeader}>
-						developer
-						<SuperSort
-							sort={sort}
-							value={"developer"}
-							onChange={onChangeSort}
-						/>
-					</div>
+			{idLoading ? (
+				<div id={"hw15-loading"} className={s.loading}>
+					<Loader />
 				</div>
+			) : (
+				<div className={s2.hw}>
+					<SuperPagination
+						page={page}
+						itemsCountForPage={count}
+						totalCount={totalCount}
+						onChange={onChangePagination}
+					/>
 
-				{mappedTechs}
-			</div>
+					<div className={s.rowHeader}>
+						<div className={s.techHeader}>
+							tech
+							<SuperSort
+								sort={sort}
+								value={"tech"}
+								onChange={onChangeSort}
+							/>
+						</div>
+
+						<div className={s.developerHeader}>
+							developer
+							<SuperSort
+								sort={sort}
+								value={"developer"}
+								onChange={onChangeSort}
+							/>
+						</div>
+					</div>
+
+					{mappedTechs}
+				</div>
+			)}
 		</div>
 	);
 };

@@ -83,6 +83,7 @@ const HW14 = () => {
 
 				{mappedTechs}
 			</div>
+			<hr />
 		</div>
 	);
 };
